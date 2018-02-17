@@ -1,0 +1,80 @@
+﻿body {
+    background-color: #f3f3f4;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #F2F2F2;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: repeat;
+    background: #f7f7f7 url(/Content/Images/body-bg.png);
+    font-family: "Trebuchet MS",Arial;
+    height: 100%;
+    font-size: 13px;
+    color: #676a6c;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+.login {
+    margin: 0 auto;
+    max-width: 362px;
+    border: 12px solid rgba(0, 0, 0, 0.45);
+    border-radius: 5px;
+    position: relative;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.login-container {
+    padding: 40px 30px 30px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.login-logo {
+    padding-bottom: 30px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="password"], select {
+    padding: 10px 6px;
+    line-height: 1.333333;
+    border-radius: 6px;
+    width: 95%;
+    margin-bottom: 10px;
+}
+
+select {
+    width: 100% !important;
+}
+
+button, input[type="submit"], input[type="button"] {
+    color: #FFFFFF;
+    background-color: #1A4078;
+    border-color: #1A4078;
+    border-radius: 3px;
+    width: 100%;
+    padding: 10px 16px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.footer {
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
+}

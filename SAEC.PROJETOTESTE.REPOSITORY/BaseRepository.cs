@@ -1,41 +1,47 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using SAEC.PROJETOTESTE.MODEL.Entities;
+using System.Linq.Expressions;
 using SAEC.PROJETOTESTE.MODEL.Interfaces.Repositories;
 using SAEC.PROJETOTESTE.REPOSITORY.Configuration.Entity;
 
 namespace SAEC.PROJETOTESTE.REPOSITORY
 {
-    public class BaseRepository : IBaseRepository
+    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
     {
         protected Context Db = new Context();
 
-        public void Add(BaseModel obj)
+        public void Add(TEntity obj)
         {
-            Db.Set<BaseModel>().Add(obj);
+            Db.Set<TEntity>().Add(obj);
             Db.SaveChanges();
         }
 
-        public BaseModel GetById(int id)
+        public TEntity GetById(int id)
         {
-            return Db.Set<BaseModel>().Find(id);
+            return Db.Set<TEntity>().Find(id);
         }
 
-        public IEnumerable<BaseModel> GetAll()
+        public ICollection<TEntity> GetAll()
         {
-            return Db.Set<BaseModel>().ToList();
+            return Db.Set<TEntity>().ToList();
         }
 
-        public void Update(BaseModel obj)
+        public ICollection<TEntity> GetBy(Expression<Func<TEntity, bool>> expression)
+        {
+            return Db.Set<TEntity>().Where(expression).ToList();
+        }
+
+        public void Update(TEntity obj)
         {
             Db.Entry(obj).State = EntityState.Modified;
             Db.SaveChanges();
         }
 
-        public void Remove(BaseModel obj)
+        public void Remove(TEntity obj)
         {
-            Db.Set<BaseModel>().Remove(obj);
+            Db.Set<TEntity>().Remove(obj);
             Db.SaveChanges();
         }
     }

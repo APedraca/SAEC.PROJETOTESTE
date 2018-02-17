@@ -1,0 +1,39 @@
+﻿@model SAEC.PROJETOTESTE.MVC.ViewModels.UsuarioViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/Usuario/Login")
+</head>
+<body>
+<div class="login">
+    <div class="login-container">
+        <div class="login-logo">Projeto Teste</div>
+        @using (Html.BeginForm("Login", "Usuario", new {area = ""}, FormMethod.Post, new {id = "frmLogin"}))
+        {
+            @Html.TextBoxFor(a => a.Usuario.Email, new {@placeholder = "Email", @autocomplete = "off", @autofocus = ""})
+
+            @Html.PasswordFor(a => a.Usuario.Senha, new {@placeholder = "Senha"})
+
+            <input type="submit" value="Entrar"/>
+            <input type="button" onclick="location.href='@Url.Content("~/Usuario/Create")'" value="Me Inscrever"/>
+        }
+    </div>
+    
+</div>
+
+<footer class="footer">
+    <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+</footer>
+
+@Scripts.Render("~/bundles/jquery")
+</body>
+</html>

@@ -1,0 +1,22 @@
+﻿@model SAEC.PROJETOTESTE.MVC.ViewModels.AlunoViewModel
+
+@Html.HiddenFor(model => model.Aluno.Id)
+@Html.HiddenFor(model => model.Aluno.Cadastro)
+
+@Html.EditorFor(model => model.Aluno.Nome, new { htmlAttributes = new { @placeholder = "Nome" } })
+
+@Html.EditorFor(model => model.Aluno.Cpf, new { htmlAttributes = new { @placeholder = "Cpf" } })
+
+@Html.EditorFor(model => model.Aluno.Sexo, new { htmlAttributes = new { @placeholder = "Sexo" } })
+
+@Html.EditorFor(model => model.Aluno.Telefone, new { htmlAttributes = new { @placeholder = "Telefone" } })
+
+@Html.DropDownListFor(model => model.Aluno.CidadeId, Model.CidadeSl, "-- Cidades --")
+
+@Html.EditorFor(model => model.Aluno.Rg, new { htmlAttributes = new { @placeholder = "Rg" } })
+
+@Html.EditorFor(model => model.Aluno.Nascimento, new { htmlAttributes = new { @placeholder = "Nascimento" } })
+
+@Html.EditorFor(model => model.Aluno.Endereco, new { htmlAttributes = new { @placeholder = "Endereço" } })
+
+@Html.EditorFor(model => model.Aluno.Matricula, new { htmlAttributes = new { @placeholder = "Matrícula" } })

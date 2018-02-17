@@ -46,10 +46,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Ninject, Version=3.3.3.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.3\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.3.0\lib\net45\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common.WebHost, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.WebHost.3.3.0\lib\net45\Ninject.Web.Common.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC5.3.3.0\lib\net45\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -103,6 +121,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -142,26 +163,68 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Authorizations\AuthenticationProvider.cs" />
+    <Compile Include="Authorizations\AuthorizationAttribute.cs" />
+    <Compile Include="Controllers\AlunoController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CidadeController.cs" />
+    <Compile Include="Controllers\GraficoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\SelectListUtils.cs" />
+    <Compile Include="ViewModels\AlunoViewModel.cs" />
+    <Compile Include="ViewModels\CidadeViewModel.cs" />
+    <Compile Include="ViewModels\GraficoViewModel.cs" />
+    <Compile Include="ViewModels\UsuarioViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\datatables.min.css" />
+    <Content Include="Content\Images\body-bg.png" />
+    <Content Include="Content\DataTables-1.10.16\images\back_disabled.png" />
+    <Content Include="Content\DataTables-1.10.16\images\back_enabled.png" />
+    <Content Include="Content\DataTables-1.10.16\images\back_enabled_hover.png" />
+    <Content Include="Content\DataTables-1.10.16\images\forward_disabled.png" />
+    <Content Include="Content\DataTables-1.10.16\images\forward_enabled.png" />
+    <Content Include="Content\DataTables-1.10.16\images\forward_enabled_hover.png" />
+    <Content Include="Content\DataTables-1.10.16\images\sort_asc.png" />
+    <Content Include="Content\DataTables-1.10.16\images\sort_asc_disabled.png" />
+    <Content Include="Content\DataTables-1.10.16\images\sort_both.png" />
+    <Content Include="Content\DataTables-1.10.16\images\sort_desc.png" />
+    <Content Include="Content\DataTables-1.10.16\images\sort_desc_disabled.png" />
+    <Content Include="Content\Images\patterns\1.png" />
+    <Content Include="Content\Images\patterns\2.png" />
+    <Content Include="Content\Images\patterns\3.png" />
+    <Content Include="Content\Images\patterns\4.png" />
+    <Content Include="Content\Images\patterns\5.png" />
+    <Content Include="Content\Images\patterns\6.png" />
+    <Content Include="Content\Images\patterns\7.png" />
+    <Content Include="Content\Images\patterns\congruent_pentagon.png" />
+    <Content Include="Content\Images\patterns\header-profile-skin-1.png" />
+    <Content Include="Content\Images\patterns\header-profile-skin-2.png" />
+    <Content Include="Content\Images\patterns\header-profile-skin-3.png" />
+    <Content Include="Content\Images\patterns\header-profile.png" />
+    <Content Include="Content\Images\patterns\otis_redding.png" />
+    <Content Include="Content\Images\patterns\shattered.png" />
+    <Content Include="Content\Images\patterns\triangular.png" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\Usuario\Login.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Aluno\index.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Cidade\index.js" />
+    <Content Include="Scripts\datatables.min.js" />
+    <Content Include="Scripts\Grafico\AlunoDias.js" />
+    <Content Include="Scripts\Grafico\AlunoCidade.js" />
+    <Content Include="Scripts\Grafico\AlunoHorario.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -172,7 +235,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -183,10 +248,21 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Cidade\Index.cshtml" />
+    <Content Include="Views\Cidade\Create.cshtml" />
+    <Content Include="Views\Cidade\Edit.cshtml" />
+    <Content Include="Views\Cidade\CreateOrEdit.cshtml" />
+    <Content Include="Views\Aluno\Create.cshtml" />
+    <Content Include="Views\Aluno\CreateOrEdit.cshtml" />
+    <Content Include="Views\Aluno\Edit.cshtml" />
+    <Content Include="Views\Aluno\Index.cshtml" />
+    <Content Include="Views\Usuario\Login.cshtml" />
+    <Content Include="Views\Usuario\Create.cshtml" />
+    <Content Include="Views\Cidade\Cidades.cshtml" />
+    <Content Include="Views\Aluno\Alunos.cshtml" />
+    <Content Include="Views\Grafico\AlunoHorario.cshtml" />
+    <Content Include="Views\Grafico\AlunoDias.cshtml" />
+    <Content Include="Views\Grafico\AlunoCidade.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -204,6 +280,16 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SAEC.PROJETOTESTE.IOC\SAEC.PROJETOTESTE.IOC.csproj">
+      <Project>{f42589d9-ae45-4d85-aa86-c47fc752df40}</Project>
+      <Name>SAEC.PROJETOTESTE.IOC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SAEC.PROJETOTESTE.MODEL\SAEC.PROJETOTESTE.MODEL.csproj">
+      <Project>{2c52c4b2-3f97-4ce9-964f-452566983172}</Project>
+      <Name>SAEC.PROJETOTESTE.MODEL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,26 @@
+﻿@model SAEC.PROJETOTESTE.MVC.ViewModels.AlunoViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="barra-topo-header">
+    <h2>Alunos</h2>
+</div>
+
+<div class="conteudo-central">
+    <div class="conteudo-central-2">
+        <div class="conteudo-central-2-titulo">
+            <h5>Cadastro de Aluno</h5>
+        </div>
+        <div class="conteudo-central-2-conteudo">
+            @using (Html.BeginForm())
+            {
+                @Html.Partial("CreateOrEdit", Model)
+
+                <input type="submit" value="Salvar" />
+                <input type="button" onclick="location.href='@Url.Content("~/Aluno/Index")'" value="Voltar" />
+            }
+        </div>
+    </div>
+</div>

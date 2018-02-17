@@ -1,4 +1,6 @@
-﻿namespace SAEC.PROJETOTESTE.MODEL.Entities
+﻿using System.Collections.Generic;
+
+namespace SAEC.PROJETOTESTE.MODEL.Entities
 {
     public class Usuario : BaseModel
     {
@@ -10,5 +12,6 @@
         public virtual Cidade Cidade { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }
+        public virtual ICollection<Aluno> Alunos { get; set; }
     }
 }

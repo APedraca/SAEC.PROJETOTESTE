@@ -1,0 +1,10 @@
+﻿@model SAEC.PROJETOTESTE.MVC.ViewModels.CidadeViewModel
+
+@Html.HiddenFor(model => model.Cidade.Id)
+@Html.HiddenFor(model => model.Cidade.Cadastro)
+
+<div style="width: 33%">@Html.EditorFor(model => model.Cidade.Nome, new { htmlAttributes = new { @placeholder = "Nome" } })</div>
+
+<div style="width: 33%">@Html.EditorFor(model => model.Cidade.Estado, new { htmlAttributes = new { @placeholder = "Estado" } })</div>
+
+<div style="width: 33%">@Html.EditorFor(model => model.Cidade.Cep, new { htmlAttributes = new { @placeholder = "Cep" } })</div>

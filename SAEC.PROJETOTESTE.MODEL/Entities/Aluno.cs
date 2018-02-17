@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace SAEC.PROJETOTESTE.MODEL.Entities
 {
@@ -18,6 +17,5 @@ namespace SAEC.PROJETOTESTE.MODEL.Entities
         public DateTime Alterado { get; set; }
         public int UsuarioId { get; set; }
         public virtual Usuario Usuario { get; set; }
-        public virtual IEnumerable<AlunoResponsavel> AlunoResponsavels { get; set; }
     }
 }

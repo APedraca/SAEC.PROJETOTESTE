@@ -1,0 +1,32 @@
+﻿@model SAEC.PROJETOTESTE.MVC.ViewModels.GraficoViewModel
+
+@{
+    ViewBag.Title = "AlunoDias";
+}
+
+<div class="barra-topo-header">
+    <h2>Gráficos</h2>
+</div>
+
+<div class="conteudo-central">
+    <div class="conteudo-central-2">
+        <div class="conteudo-central-2-titulo">
+            <h5>Gráfico Aluno por Cidade</h5>
+            <div class="content-right">
+                <input type="button" class="btn-small" onclick="location.href='@Url.Content("~/Grafico/AlunoCidade")'" value="Gráfico Alunos por Cidade" />
+                <input type="button" class="btn-small" onclick="location.href='@Url.Content("~/Grafico/AlunoHorario")'" value="Gráfico Alunos por Horário" />
+            </div>
+        </div>
+        <div class="conteudo-central-2-conteudo">
+            Ultimos
+            @Html.DropDownList("quantidadeDias", Model.QuantidadeDiasSl, new { htmlAttributes = new { @class = "form-control" }, @style = "width: 33%!important;" })
+            <input type="button" value="Gerar Gráfico" class="btn btn-default" id="btnGerar" style="margin-top:6px" />
+            <div id="chart_div"></div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    @Scripts.Render("~/bundles/Grafico/AlunoDias")
+}

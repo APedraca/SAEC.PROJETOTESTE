@@ -1,42 +1,52 @@
-﻿using System.Collections.Generic;
-using SAEC.PROJETOTESTE.MODEL.Entities;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Reflection;
 using SAEC.PROJETOTESTE.MODEL.Interfaces.Repositories;
 using SAEC.PROJETOTESTE.MODEL.Interfaces.Services;
 
 namespace SAEC.PROJETOTESTE.SERVICE
 {
-    public class BaseService : IBaseService
+    public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : class
     {
-        private readonly IBaseRepository _baseRepository;
+        private readonly IBaseRepository<TEntity> _repository;
 
-        public BaseService(IBaseRepository baseRepository)
+        public BaseService(IBaseRepository<TEntity> repository)
         {
-            _baseRepository = baseRepository;
+            _repository = repository;
         }
 
-        public void Add(BaseModel obj)
+        public void Add(TEntity obj)
         {
-            _baseRepository.Add(obj);
+            DateTime cadastro = DateTime.Now;
+            PropertyInfo propertyInfo = obj.GetType().GetProperty("Cadastro");
+            propertyInfo.SetValue(obj, Convert.ChangeType(cadastro, propertyInfo.PropertyType), null);
+            _repository.Add(obj);
         }
 
-        public BaseModel GetById(int id)
+        public TEntity GetById(int id)
         {
-            return _baseRepository.GetById(id);
+            return _repository.GetById(id);
         }
 
-        public IEnumerable<BaseModel> GetAll()
+        public ICollection<TEntity> GetAll()
         {
-            return _baseRepository.GetAll();
+            return _repository.GetAll();
         }
 
-        public void Update(BaseModel obj)
+        public ICollection<TEntity> GetBy(Expression<Func<TEntity, bool>> expression)
         {
-            _baseRepository.Update(obj);
+            return _repository.GetBy(expression);
         }
 
-        public void Remove(BaseModel obj)
+        public void Update(TEntity obj)
         {
-            _baseRepository.Remove(obj);
+            _repository.Update(obj);
+        }
+
+        public void Remove(TEntity obj)
+        {
+            _repository.Remove(obj);
         }
     }
 }

@@ -19,13 +19,46 @@ namespace SAEC.PROJETOTESTE.MVC
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
-
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/Site.css"));
+
+            #region Cidade
+
+            bundles.Add(new ScriptBundle("~/bundles/Cidade").Include(
+                        "~/Scripts/datatables.min.js",
+                        "~/Scripts/Cidade/index.js"));
+
+            bundles.Add(new StyleBundle("~/Content/Cidade").Include(
+                        "~/Content/datatables.min.css"));
+
+            #endregion
+
+            #region Aluno
+
+            bundles.Add(new ScriptBundle("~/bundles/Aluno").Include(
+                "~/Scripts/datatables.min.js",
+                "~/Scripts/Aluno/index.js"));
+
+            bundles.Add(new StyleBundle("~/Content/Aluno").Include(
+                "~/Content/datatables.min.css"));
+
+            bundles.Add(new StyleBundle("~/Content/Usuario/Login").Include(
+                "~/Content/Usuario/Login.css"));
+
+            #endregion
+
+            #region Grafico
+
+            bundles.Add(new ScriptBundle("~/bundles/Grafico/AlunoHorario").Include(
+                "~/Scripts/Grafico/AlunoHorario.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/Grafico/AlunoDias").Include(
+                "~/Scripts/Grafico/AlunoDias.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/Grafico/AlunoCidade").Include(
+                "~/Scripts/Grafico/AlunoCidade.js"));
+
+            #endregion
         }
     }
 }

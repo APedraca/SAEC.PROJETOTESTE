@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,15 +41,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cryptography\MD5Cryptography.cs" />
     <Compile Include="Entities\Aluno.cs" />
     <Compile Include="Entities\AlunoResponsavel.cs" />
     <Compile Include="Entities\BaseModel.cs" />
     <Compile Include="Entities\Cidade.cs" />
     <Compile Include="Entities\Usuario.cs" />
+    <Compile Include="Interfaces\Repositories\IAlunoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IAlunoResponsavelRepository.cs" />
     <Compile Include="Interfaces\Repositories\IBaseRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICidadeRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IUsuarioRepository.cs" />
+    <Compile Include="Interfaces\Services\IAlunoResponsavelService.cs" />
+    <Compile Include="Interfaces\Services\IUsuarioService.cs" />
+    <Compile Include="Interfaces\Services\IAlunoService.cs" />
     <Compile Include="Interfaces\Services\IBaseService.cs" />
     <Compile Include="Interfaces\Services\ICidadeService.cs" />
+    <Compile Include="ManagementSystem\ProjetoTesteConfiguration.cs" />
+    <Compile Include="ManagementSystem\ProjetoTesteException.cs" />
+    <Compile Include="ManagementSystem\ProjetoTesteExceptionMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

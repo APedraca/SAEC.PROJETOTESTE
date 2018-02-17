@@ -6,37 +6,37 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("content", false)
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+<div class="container">
+    <div class="menu-lateral">
+        <ul class="menu-lateral-ul">
+            <li class="menu-lateral-logo"><div class="menu-lateral-logo-text">Projeto Teste</div></li>
+            <li><a href="@Url.Action("AlunoHorario", "Grafico")"><span class="menu-lateral-opcao">Graficos</span> </a></li>
+            <li><a href="@Url.Action("Index", "Aluno")"><span class="menu-lateral-opcao">Alunos</span> </a></li>
+            <li><a href="@Url.Action("Index", "Cidade")"><span class="menu-lateral-opcao">Cidades</span> </a></li>
+            <li><a href="@Url.Action("Cidades", "Cidade")"><span class="menu-lateral-opcao">Cidades e Alunos</span> </a></li>
+        </ul>
+    </div>
+    <div class="conteudo">
+        <div class="barra-topo">
+            <div class="barra-top-menu">
+                <a href="@Url.Action("LogOff", "Usuario")"><span>LogOff</span> </a>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
+        
+        
+
         @RenderBody()
-        <hr />
-        <footer>
+
+        <footer class="footer">
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
+</div>
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>

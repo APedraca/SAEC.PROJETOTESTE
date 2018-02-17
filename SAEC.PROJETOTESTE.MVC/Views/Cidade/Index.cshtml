@@ -1,0 +1,72 @@
+﻿@model SAEC.PROJETOTESTE.MVC.ViewModels.CidadeViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="barra-topo-header">
+    <h2>Cidades</h2>
+</div>
+
+<div class="conteudo-central">
+    <div class="conteudo-central-2">
+        <div class="conteudo-central-2-titulo">
+            <h5>Litagem de Cidades</h5>
+        </div>
+        <div class="conteudo-central-2-conteudo">
+            <input type="button" onclick="location.href='@Url.Content("~/Cidade/Create")'" value="Nova Cidade" />
+            
+            <table id="cidades">
+                <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cidade.Cadastro)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cidade.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cidade.Estado)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cidade.Cep)
+                    </th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model.Cidades)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cadastro)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Estado)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cep)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section content{
+    @Styles.Render("~/Content/Cidade")
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/Cidade")
+}

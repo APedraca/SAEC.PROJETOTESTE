@@ -1,0 +1,78 @@
+﻿@model SAEC.PROJETOTESTE.MVC.ViewModels.AlunoViewModel
+
+@{
+    ViewBag.Title = "teste";
+}
+
+<div class="barra-topo-header">
+    <h2>Alunos</h2>
+</div>
+
+<div class="conteudo-central">
+    <div class="conteudo-central-2">
+        <div class="conteudo-central-2-titulo">
+            <h5>Listagem de Alunos</h5>
+        </div>
+        <div class="conteudo-central-2-conteudo">
+            <input type="button" onclick="location.href='@Url.Content("~/Cidade/Cidades")'" value="Cidades" />
+
+            <table id="alunos">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Aluno.Cadastro)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Aluno.Nome)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Aluno.Cpf)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Aluno.Sexo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Aluno.Telefone)
+                        </th>
+                        <th>
+                            Cidade
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Alunos)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Cadastro)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nome)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Cpf)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Sexo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Telefone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Cidade.Nome)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section content{
+    @Styles.Render("~/Content/Aluno")
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/Aluno")
+}

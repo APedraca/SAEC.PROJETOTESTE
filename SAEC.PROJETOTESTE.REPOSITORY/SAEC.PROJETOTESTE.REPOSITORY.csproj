@@ -31,10 +31,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -47,20 +47,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlunoResponsavelRepository.cs" />
+    <Compile Include="UsuarioRepository.cs" />
+    <Compile Include="AlunoRepository.cs" />
     <Compile Include="BaseRepository.cs" />
+    <Compile Include="CidadeRepository.cs" />
+    <Compile Include="Configuration\Entity\AlunoConfig.cs" />
+    <Compile Include="Configuration\Entity\CidadeConfig.cs" />
     <Compile Include="Configuration\Entity\Context.cs" />
-    <Compile Include="Configuration\Entity\Mapping\CidadeMap.cs" />
+    <Compile Include="Configuration\Entity\UsuarioConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SAEC.PROJETOTESTE.MODEL\SAEC.PROJETOTESTE.MODEL.csproj">
       <Project>{2c52c4b2-3f97-4ce9-964f-452566983172}</Project>
       <Name>SAEC.PROJETOTESTE.MODEL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

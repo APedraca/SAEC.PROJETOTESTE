@@ -1,0 +1,51 @@
+﻿@model SAEC.PROJETOTESTE.MVC.ViewModels.UsuarioViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/Usuario/Login")
+</head>
+<body>
+<div class="login">
+    <div class="login-container">
+        <div class="login-logo">Projeto Teste</div>
+        @using (Html.BeginForm())
+        {
+            @Html.HiddenFor(model => model.Usuario.Id)
+            @Html.HiddenFor(model => model.Usuario.Cadastro)
+
+            @Html.EditorFor(model => model.Usuario.Nome, new { htmlAttributes = new { @placeholder = "Nome" } })
+
+            @Html.EditorFor(model => model.Usuario.Cpf, new { htmlAttributes = new { @placeholder = "Cpf" } })
+
+            @Html.EditorFor(model => model.Usuario.Sexo, new { htmlAttributes = new { @placeholder = "Sexo" } })
+
+            @Html.EditorFor(model => model.Usuario.Telefone, new { htmlAttributes = new { @placeholder = "Telefone" } })
+
+            @Html.DropDownListFor(model => model.Usuario.CidadeId, Model.CidadeSl, "-- Cidades --")
+
+            @Html.EditorFor(model => model.Usuario.Email, new { htmlAttributes = new { @placeholder = "Email" } })
+
+            @Html.PasswordFor(model => model.Usuario.Senha, new { htmlAttributes = new { @placeholder = "Senha" } })
+
+            <input type="submit" value="Save"/>
+            <input type="button" onclick="location.href='@Url.Content("~/Usuario/Login")'" value="Voltar"/>
+        }
+    </div>
+</div>
+
+<footer class="footer">
+    <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+</footer>
+
+@Scripts.Render("~/bundles/jquery")
+</body>
+</html>
